@@ -630,12 +630,16 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
 
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyA5S7V3coQ7xIZCKgXWNjo2u8neBGj7r4E&v=3.exp&libraries=places"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA5S7V3coQ7xIZCKgXWNjo2u8neBGj7r4E&v=3.exp&region=BA&libraries=places"></script>
     <script src="js/jquery-activmap.js"></script>
     <script>
         $(document).ready(function(){
             $('#activmap-wrapper').activmap({
-                places: 'data/map.data'
+                places: 'data/map.data',
+                lat: 43.8563,
+                lng: 17.4131,
+                zoom: 8
             });
         });
     </script>
