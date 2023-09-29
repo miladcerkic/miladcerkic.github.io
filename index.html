@@ -17,6 +17,7 @@
 
     <!-- Custom CSS -->
     <link href="css/uspit.css" rel="stylesheet">
+    <link href="css/activmap.css" rel="stylesheet" >
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -302,6 +303,9 @@
                     <a href="/pdf/pristupnica-uspit.pdf" target="_blank" class="btn btn-lg btn-outline">
                         <i class="fa fa-download"></i> Preuzmi Pristupnicu
                     </a>
+                    <a href="/upload/documents/eticki_kodeks_uspit.pdf" target="_blank" class="btn btn-lg btn-outline" style="margin-left:20px;">
+                        <i class="fa fa-download"></i> Preuzmi Etički kodeks
+                    </a>
                 </div>
             </div>
         </div>
@@ -318,50 +322,73 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="mailto:info@uspit.ba">info@uspit.ba</a>
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <!--
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Ime</label>
-                                <input type="text" class="form-control" placeholder="Ime" id="name" required data-validation-required-message="Molimo vas unesite ime i prezime.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>E-mail Adresa</label>
-                                <input type="email" class="form-control" placeholder="E-mail Adresa" id="email" required data-validation-required-message="Molimo vas unesite e-mail adresu.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Broj Telefona</label>
-                                <input type="tel" class="form-control" placeholder="Broj Telefona" id="phone" required data-validation-required-message="Molimo vas unesite broj telefona.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Tekst Poruke</label>
-                                <textarea rows="5" class="form-control" placeholder="Tekst Poruke" id="message" required data-validation-required-message="Molimo vas unesite poruku."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Pošalji</button>
-                            </div>
-                        </div>
-                    </form>
-                    -->
+            <div id="activmap-wrapper">
+                <div id="activmap-places" class="hidden-xs"></div>
+                <div id="activmap-container">
+                        <div id="activmap-canvas"></div>
                 </div>
+                <select name="marker_type[]" id="city" class="form-control">
+                        <option value="all">Svi gradovi</option>
+                        <option value="banja-luka">Banja Luka</option>
+                        <option value="banovici">Banovići</option>
+                        <option value="bihac">Bihać</option>
+                        <option value="bijeljina">Bijeljina</option>
+                        <option value="bosanska-krupa">Bosanska Krupa</option>
+                        <option value="bosanski-brod">Bosanski Brod</option>
+                        <option value="bratunac">Bratunac</option>
+                        <option value="brcko">Brčko</option>
+                        <option value="bugojno">Bugojno</option>
+                        <option value="busovaca">Busovača</option>
+                        <option value="buzim">Bužim</option>
+                        <option value="capljina">Čapljina</option>
+                        <option value="cazin">Cazin</option>
+                        <option value="celic">Čelić</option>
+                        <option value="citluk">Čitluk</option>
+                        <option value="derventa">Derventa</option>
+                        <option value="doboj">Doboj</option>
+                        <option value="doboj-jug">Doboj Jug</option>
+                        <option value="domaljevac">Domaljevac</option>
+                        <option value="gorazde">Goražde</option>
+                        <option value="gracanica">Gračanica</option>
+                        <option value="gradacac">Gradačac</option>
+                        <option value="ilijas">Ilijaš</option>
+                        <option value="kakanj">Kakanj</option>
+                        <option value="kalesija">Kalesija</option>
+                        <option value="kiseljak">Kiseljak</option>
+                        <option value="kljuc">Ključ</option>
+                        <option value="konjic">Konjic</option>
+                        <option value="livno">Livno</option>
+                        <option value="ljubuski">Ljubuški</option>
+                        <option value="loncari">Lončari</option>
+                        <option value="maglaj">Maglaj</option>
+                        <option value="modrica">Modriča</option>
+                        <option value="mostar">Mostar</option>
+                        <option value="nemila">Nemila</option>
+                        <option value="neum">Neum</option>
+                        <option value="novi-grad">Novi Grad</option>
+                        <option value="orasje">Orašje</option>
+                        <option value="posusje">Posušje</option>
+                        <option value="prijedor">Prijedor</option>
+                        <option value="prnjavor">Prnjavor</option>
+                        <option value="sanski-most">Sanski Most</option>
+                        <option value="sarajevo">Sarajevo</option>
+                        <option value="siroki-brijeg">Široki Brijeg</option>
+                        <option value="srebrenik">Srebrenik</option>
+                        <option value="stolac">Stolac</option>
+                        <option value="tesanj">Tešanj</option>
+                        <option value="teslic">Teslić</option>
+                        <option value="tomislavgrad">Tomislavgrad</option>
+                        <option value="travnik">Travnik</option>
+                        <option value="trebinje">Trebinje</option>
+                        <option value="tuzla">Tuzla</option>
+                        <option value="velika-kladusa">Velika Kladuša</option>
+                        <option value="visoko">Visoko</option>
+                        <option value="vitez">Vitez</option>
+                        <option value="zavidovici">Zavidovići</option>
+                        <option value="zenica">Zenica</option>
+                        <option value="zepce">Žepče</option>
+                        <option value="zivinice">Živinice</option>
+                </select>
             </div>
         </div>
     </section>
@@ -602,6 +629,16 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNflbsgwFn4SJrYKcq6CFbapdAs_OBxvA&v=3.exp&libraries=places"></script>
+    <script src="js/jquery-activmap.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#activmap-wrapper').activmap({
+                places: 'data/map.data'
+            });
+        });
+    </script>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
